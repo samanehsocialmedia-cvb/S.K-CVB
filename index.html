@@ -1,48 +1,928 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>PHPMailer Examples</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سمانه کهنموئی - ادمین هوشمند اینستاگرام</title>
+
+<!-- Favicons
+================================================== -->
+<link rel="shortcut icon" href="img/سمانه کهنمویی.jpg" type="image/x-icon">
+<link rel="icon" href="img/سمانه کهنمویی.jpg" type="image/x-icon">
+<!-- / Favicons
+================================================== -->
+
+<!-- >> CSS
+============================================================================== -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Web Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<!-- Font Awesome -->
+<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<!-- Nivo Lightbox -->
+<link href="vendor1/nivo-lightbox/nivo-lightbox.css" rel="stylesheet">
+<link rel="stylesheet" href="vendor1/nivo-lightbox/themes/default/default.css" type="text/css" />
+  <!-- /Nivo Lightbox -->
+  <!-- Perfect ScrollBar -->
+<link href="vendor1/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet">
+<!-- owl carousel -->
+<link href="vendor1/owl.carousel/owl-carousel/owl.carousel.css" rel="stylesheet">
+<link href="vendor1/owl.carousel/owl-carousel/owl.theme.css" rel="stylesheet">
+<!-- Main Styles -->
+<link href="css/styles.css" rel="stylesheet">
+
+<!-- >> /CSS
+============================================================================== -->
 </head>
 <body>
-<h1>PHPMailer code examples<a href="https://github.com/PHPMailer/PHPMailer"><img src="images/phpmailer.png" style="float:right; border:0;" alt="PHPMailer logo"></a></h1>
-<p>This folder contains a collection of examples of using <a href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a>.</p>
-<h2>About testing email sending</h2>
-<p>When working on email sending code you'll find yourself worrying about what might happen if all these test emails got sent to your mailing list. The solution is to use a fake mail server, one that acts just like the real thing, but just doesn't actually send anything out. Some offer web interfaces, feedback, logging, the ability to return specific error codes, all things that are useful for testing error handling, authentication etc. Here's a selection of mail testing tools you might like to try:</p>
-<ul>
-  <li><a href="https://github.com/Nilhcem/FakeSMTP">FakeSMTP</a>, a Java desktop app with the ability to show an SMTP log and save messages to a folder. </li>
-  <li><a href="https://github.com/isotoma/FakeEmail">FakeEmail</a>, a Python-based fake mail server with a web interface.</li>
-  <li><a href="http://www.postfix.org/smtp-sink.1.html">smtp-sink</a>, part of the Postfix mail server, so you probably already have this installed. This is used in the Travis-CI configuration to run PHPMailer's unit tests.</li>
-  <li><a href="http://smtp4dev.codeplex.com">smtp4dev</a>, a dummy SMTP server for Windows.</li>
-  <li><a href="https://github.com/PHPMailer/PHPMailer/blob/master/test/fakesendmail.sh">fakesendmail.sh</a>, part of PHPMailer's test setup, this is a shell script that emulates sendmail for testing 'mail' or 'sendmail' methods in PHPMailer.</li>
-  <li><a href="http://tools.ietf.org/tools/msglint/">msglint</a>, not a mail server, the IETF's MIME structure analyser checks the formatting of your messages.</li>
-</ul>
-<div style="padding: 8px; color: #333333; background-color: #dc8b92">
-<h2>Security note</h2>
-<p>Before running these examples you'll need to rename them with '.php' extensions. They are supplied as '.phps' files which will usually be displayed with syntax highlighting by PHP instead of running them. This prevents potential security issues with running potential spam-gateway code if you happen to deploy these code examples on a live site - <em>please don't do that!</em> Similarly, don't leave your passwords in these files as they will be visible to the world!</p>
+<!-- Page Loader
+========================================================= -->
+<div class="loader-container" id="page-loader"> 
+  <div class="loading-wrapper">
+  	<div class="loader-animation" id="loader-animation">
+  		<span class="loader"><span class="loader-inner"></span></span>
+  	</div>    
+    <!-- Edit With Your Name -->
+    <div class="loader-name" id="loader-name">
+      Admin <strong> </strong>
+    </div>
+    <!-- /Edit With Your Name -->
+    <!-- Edit With Your Job -->
+    <p class="loader-job" id="loader-job"> ادمین هوشمند سیستم دایرکتم </p>
+    <!-- /Edit With Your Job -->
+  </div>   
 </div>
-<h2><a href="code_generator.phps">code_generator.phps</a></h2>
-<p>This script is a simple code generator - fill in the form and hit submit, and it will use when you entered to email you a message, and will also generate PHP code using your settings that you can copy and paste to use in your own apps. If you need to get going quickly, this is probably the best place to start.</p>
-<h2><a href="mail.phps">mail.phps</a></h2>
-<p>This script is a basic example which creates an email message from an external HTML file, creates a plain text body, sets various addresses, adds an attachment and sends the message. It uses PHP's built-in mail() function which is the simplest to use, but relies on the presence of a local mail server, something which is not usually available on Windows. If you find yourself in that situation, either install a local mail server, or use a remote one and send using SMTP instead.</p>
-<h2><a href="exceptions.phps">exceptions.phps</a></h2>
-<p>The same as the mail example, but shows how to use PHPMailer's optional exceptions for error handling.</p>
-<h2><a href="smtp.phps">smtp.phps</a></h2>
-<p>A simple example sending using SMTP with authentication.</p>
-<h2><a href="smtp_no_auth.phps">smtp_no_auth.phps</a></h2>
-<p>A simple example sending using SMTP without authentication.</p>
-<h2><a href="sendmail.phps">sendmail.phps</a></h2>
-<p>A simple example using sendmail. Sendmail is a program (usually found on Linux/BSD, OS X and other UNIX-alikes) that can be used to submit messages to a local mail server without a lengthy SMTP conversation. It's probably the fastest sending mechanism, but lacks some error reporting features. There are sendmail emulators for most popular mail servers including postfix, qmail, exim etc.</p>
-<h2><a href="gmail.phps">gmail.phps</a></h2>
-<p>Submitting email via Google's Gmail service is a popular use of PHPMailer. It's much the same as normal SMTP sending, just with some specific settings, namely using TLS encryption, authentication is enabled, and it connects to the SMTP submission port 587 on the smtp.gmail.com host. This example does all that.</p>
-<h2><a href="pop_before_smtp.phps">pop_before_smtp.phps</a></h2>
-<p>Before effective SMTP authentication mechanisms were available, it was common for ISPs to use POP-before-SMTP authentication. As it implies, you authenticate using the POP3 protocol (an older protocol now mostly replaced by the far superior IMAP), and then the SMTP server will allow send access from your IP address for a short while, usually 5-15 minutes. PHPMailer includes a POP3 protocol client, so it can carry out this sequence - it's just like a normal SMTP conversation (without authentication), but connects via POP first.</p>
-<h2><a href="mailing_list.phps">mailing_list.phps</a></h2>
-<p>This is a somewhat naïve example of sending similar emails to a list of different addresses. It sets up a PHPMailer instance using SMTP, then connects to a MySQL database to retrieve a list of recipients. The code loops over this list, sending email to each person using their info and marks them as sent in the database. It makes use of SMTP keepalive which saves reconnecting and re-authenticating between each message.</p>
-<hr>
-<h2><a href="smtp_check.phps">smtp_check.phps</a></h2>
-<p>This is an example showing how to use the SMTP class by itself (without PHPMailer) to check an SMTP connection.</p>
-<hr>
-<p>Most of these examples use the 'example.com' domain. This domain is reserved by IANA for illustrative purposes, as documented in <a href="http://tools.ietf.org/html/rfc2606">RFC 2606</a>. Don't use made-up domains like 'mydomain.com' or 'somedomain.com' in examples as someone, somewhere, probably owns them!</p>
+<!-- /End of Page loader
+========================================================= -->
+
+<!-- Main Content
+================================================== -->
+<section id="body" class="">
+
+	<div class="container">
+
+		<!-- MAIN MENU -->
+		<div class="main-menu" id="main-menu">
+			<ul class="main-menu-list">
+				<li><a href="#page-resume" class="link-home">خانه</a></li>
+				<li><a href="#page-resume" class="link-page">درباره من</a></li>
+				<li><a href="#page-skills" class="link-page">مهارت ها و دوره ها</a></li>
+				<li><a href="#page-portfolio" class="link-page"> گواهینامه ها</a></li>
+				<li><a href="#page-contact" class="link-page">راه های ارتباطی</a></li>
+			</ul>
+		</div>
+		<!-- /MAIN MENU -->
+		
+		<!-- SECTION: vCard Body  -->	
+		<div class="section-vcardbody section-home" id="section-home">
+			<!-- Profile pic-->
+			<div class="vcard-profile-pic">
+				<img src="img/سمانه کهنمویی.jpg" id="profile2"  alt=""/>
+				<img src="img/سمانه کهنمویی.jpg" id="profile1" class="profileActive" alt=""/>
+			</div>
+			<!-- /Profile pic -->
+			<!-- Description -->
+			<div class="vcard-profile-description">
+				<!-- Profile title -->
+				<h1 class="profile-title"> <span class="color1"> سمانه کهنموئی </span></h1>
+				<h2 class="profile-subtitle">  مدیر رسانه‌های اجتماعی و محتوای وب <br> (ادمین شبکه های اجتماعی-ادمین دایرکت) </h2> 
+				<!-- /Profile Title -->
+				<!-- Description Text -->
+				<hr class="hr1">
+				<div class="vcard-profile-description-text">
+					<p> مدیریت شبکه‌های اجتماعی، تولید محتوای هدفمند و طراحی سیستم‌های هوشمند جذب فالوور؛ تبدیل پیج به فروشگاه ۲۴ ساعته با هدف رشد واقعی کسب‌وکار شما.</p>
+				</div>	
+				<!--/ Description Text -->	
+				<!-- Description feature -->
+				<div class="vcard-profile-description-feature">
+					<!-- item -->
+					<div class="vcard-profile-description-ft-item">
+						<p>Email:  Samaneh.socialmedia@gmail.com <br> Phone: +98 936 535 0865 <br> Location: Shiraz </p>
+					</div>
+				</div>	
+				<!-- /Description feature -->		
+			</div>
+		</div>
+		<!-- /SECTION: vCard Body  -->	
+
+		<!-- PAGE: RESUME -->
+		<div class="section-vcardbody section-page" id="page-resume">
+
+			<!-- SECTION: Education -->
+			<div class="section-education">
+				<!-- Section title -->
+	            <h2 class="section-title">درباره من</h2>
+	            <!-- /Section title -->
+
+	            <!-- Buttons -->
+	           
+	            <!-- /Buttons -->
+				<div class="vcard-profile-description-text">
+					<p> متخصص در مدیریت حرفه‌ای شبکه‌های اجتماعی، ارتباط مستقیم با مخاطب (دایرکت)، و تولید محتوای هدفمند با تمرکز بر افزایش تعامل دیجیتال و ارتقاء جایگاه برند در فضای مجازی. مسلط به تدوین استراتژی‌های برندینگ، اجرای کمپین‌های خلاقانه، و تحلیل رفتار کاربران برای بهینه‌سازی مسیر ارتباطی و فروش.
+						با تجربه همکاری فریلنس در پروژه‌های متنوع، توانایی طراحی سیستم‌های هوشمند جذب فالوور هدفمند و تبدیل آن‌ها به مشتریان وفادار را دارم. با بهره‌گیری از آنالیز داده‌ها و دسته‌بندی هوشمند محصولات، پیچ کسب‌وکار شما را به یک فروشگاه ۲۴ ساعته تبدیل می‌کنم. هدف من، رشد واقعی و پایدار کسب‌وکار شما در هر حوزه‌ای است — از برندهای نوپا تا مجموعه‌های صنعتی و فروشگاه‌های آنلاین.
+						</p>
+				</div>
+
+				<h2 class="section-title2"><i class="fa fa-university"></i>&nbsp; تحصیلات</h2>
+
+	            <!-- Resume Item -->
+				<div class="resume-item">
+					<!-- Graduation title -->
+                  	<h3 class="section-item-title-1">کاردان فنی فناوری اطلاعات_اینترنت و شبکه های گسترده</h3>
+                  	<!-- /Graduation title -->
+                  	<!-- Graduation time -->
+                  	<h4 class="graduation-time"> <span class="graduation-date"> </span></h4>
+                  	<!-- /Graduation time -->
+                  	<!-- content -->
+                  	<div class="graduation-description">
+                  	  <p>دانش‌آموخته کاردانی فنی فناوری اطلاعات با گرایش اینترنت و شبکه‌های گسترده، دارای مهارت‌های عملی در طراحی و مدیریت زیرساخت‌های ارتباطی، سرویس‌های اینترنتی و امنیت شبکه. فعال در حوزه مدیریت رسانه‌های اجتماعی، تولید و انتشار محتوای دیجیتال، پاسخ‌گویی و تعامل در دایرکت‌ها، و بهینه‌سازی حضور آنلاین برندها. ترکیب دانش فنی با توانایی‌های ارتباطی و محتوایی، زمینه‌ساز ارائه راهکارهای مؤثر در فضای دیجیتال و شبکه‌های اجتماعی.
+						</p>
+                  	</div>
+                  	<!-- /Content -->
+				</div>
+	            <!-- /Resume Item -->
+
+	             <!-- Resume Item -->
+				<div class="resume-item">
+					<!-- Graduation title -->
+                  	<h3 class="section-item-title-1">راه اندازی قدم به قدم کسب و کار آنلاین</h3>
+                  	<!-- /Graduation title -->
+                  	<!-- Graduation time -->
+                  	<h4 class="graduation-time"> </h4>
+                  	<!-- /Graduation time -->
+                  	<!-- content -->
+                  	<div class="graduation-description">
+                  	  <p>فارغ‌التحصیل دوره تخصصی «راه‌اندازی قدم‌به‌قدم کسب‌وکار آنلاین» با تمرکز بر طراحی سایت با وردپرس، تولید محتوا، سئو، بازاریابی دیجیتال، و مدیریت شبکه‌های اجتماعی. مسلط به راه‌اندازی و توسعه کسب‌وکارهای اینترنتی، فروش محصولات فیزیکی و دیجیتال، و تعامل مؤثر با مخاطبان در بسترهای آنلاین.
+						دارای تجربه در مدیریت صفحات اجتماعی، پاسخ‌گویی حرفه‌ای در دایرکت‌ها، تدوین استراتژی محتوایی، و افزایش نرخ تعامل و فروش از طریق بهینه‌سازی حضور برند در فضای مجازی.
+						</p>
+                  	</div>
+                  	<!-- /Content -->
+				</div>
+	            <!-- /Resume Item -->
+			</div>
+			<!--/ SECTION: Education -->
+
+			<!-- SECTION: WORK EXPERIENCE -->
+			<div class="section-education">
+
+	            <h2 class="section-title2"><i class="fa fa-flag"></i>&nbsp; سوابق شغلی</h2>
+
+	            <!-- Resume Item -->
+				<div class="resume-item">
+					<!-- Work Place -->
+                  	<h3 class="section-item-title-1">گروه صنعتی متالیکان فارس</h3>
+                  	<!-- /Work Place -->
+                  	<!-- Job Time -->
+                  	<h4 class="job"> مدیر بخش تولید محتوا - سئو <span class="job-date"> </span></h4>
+                  	<!-- /Job Time-->
+                  	<!-- content -->
+                  	<div class="graduation-description">
+                  	  <p> در این نقش، مسئولیت طراحی و اجرای استراتژی‌های محتوایی، مدیریت رسانه‌های اجتماعی، و بهینه‌سازی سئو برای برند صنعتی متالیکان فارس را برعهده داشتم. تمرکز اصلی بر تولید محتوای تخصصی در حوزه تجهیزات صنعتی (هیدرولیک، پنوماتیک، مشعل‌ها)، افزایش نرخ تعامل کاربران، و ارتقاء رتبه سایت در نتایج جستجوی گوگل بود.
+						فعالیت‌ها شامل مدیریت صفحات اینستاگرام و لینکدین، پاسخ‌گویی حرفه‌ای به دایرکت‌ها و کامنت‌ها، تدوین تقویم محتوایی، اجرای کمپین‌های تبلیغاتی، و تحلیل داده‌های عملکردی با ابزارهایی مانند Google Analytics و Search Console بوده است. این موقعیت ترکیبی از مهارت‌های فنی، ارتباطی و خلاقانه را می‌طلبید تا حضور دیجیتال برند در فضای صنعتی به‌صورت مؤثر تقویت شود.
+						</p>
+                  	</div>
+                  	<!-- /Content -->
+				</div>
+	            <!-- /Resume Item -->
+
+	             <!-- Resume Item -->
+				
+	            <!-- /Resume Item -->
+
+	            <!-- Resume Item -->
+				
+	            <!-- /Resume Item -->
+
+	            <!-- Resume Item -->
+				
+	            <!-- /Resume Item -->
+			</div>
+			<!--/ SECTION: WORK EXPERIENCE -->
+
+			<h2 class="section-title2"><i class="fa fa-commenting"></i>&nbsp; نظر کارفرمایان</h2>
+
+			<!-- Testimonials -->
+			<div class="testimonials">
+				<!-- Testimonial Slides -->
+				<div class="testimonial-slides" id="testimonial-carousel">
+					<!-- item -->
+					<div class="testimonial-item">
+						<!-- Testimonial Content -->
+						<div class="testimonial-content">
+							<p>"«حضور ایشان در تیم ما نقطه‌ی عطفی در ارتقاء محتوای دیجیتال و تعامل با مخاطبان بود. با خلاقیت، دقت و شناخت عمیق از فضای آنلاین، توانستند رسانه‌های اجتماعی متالیکان فارس را به بستری مؤثر برای معرفی محصولات، جذب مشتریان هدفمند و افزایش چشم‌گیر فروش تبدیل کنند.»"</p>
+						</div>						
+						<!-- /Testimonial Content -->	
+						<!-- Testimonial Author -->
+						<div class="testimonial-credits">
+							<!-- picture -->
+							<div class="testimonial-picture">
+								<img src="img/متالیکان فارس.jpg" alt=""/>
+							</div>							
+							<!-- /picture -->
+							<p class="testimonial-author">مهندس ایزدی</p>
+							<p class="testimonial-firm">Metalicanfars.com</p>
+						</div>
+						<!-- /Testimonial Author -->								
+					</div>
+					<!-- /item -->
+					<!-- item -->
+					
+					<!-- /item -->
+					<!-- item -->
+					
+					<!-- /item -->
+				</div>
+				<!-- Testimonial Slides -->
+			</div>
+			<!-- /testimonials -->
+				
+			<div class="page-footer">
+				<!-- Buttons -->
+	            <div class="resume-buttons">
+	            	<!-- Download CV button -->
+					<a href="#" class="btn btn-default btn-default2"><i class="fa fa-download"></i>&nbsp; Download my resume</a>
+	            	<!-- /Download CV button -->
+	            	<!-- Get in Touch button -->
+					<a href="#page-contact" class="btn btn-default btn-default2 link-page"><i class="fa fa-download"></i>&nbsp;  Get in Touch</a>
+	            	<!-- /Get in Touch button -->
+	            </div>
+	            <!-- /Buttons -->
+	            <!-- Quote -->
+	            <p class="footer-quote"> «بهترین راه برای پیش‌بینی آینده، ساختن آن است» <br/><i>Peter Drucker</i></p>
+	            <!-- /Quote -->
+			</div>			
+			 
+		</div>
+		<!-- /PAGE: RESUME  -->	
+
+		<!-- SECTION: SKILLS-->
+		<div class="section-vcardbody section-page" id="page-skills">
+			<div class="section-skills">
+
+				<!-- Section title -->
+	            <h2 class="section-title">مهارت ها</h2>
+	            <!-- /Section title -->
+
+
+	            <!-- Subtitle -->
+	          	<h3 class="section-item-title-2"><i class="fa fa-users"></i>&nbsp;&nbsp; زبان ها</h3>
+	          	<!-- /Subtitle -->
+
+				<!-- Skils List -->
+				<ul class="skills-list">
+                    <!-- item-list -->
+                    <li>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" data-percent="100%" style="width: 100%;">
+                            <span class="sr-only">100% Complete</span>
+                        </div>
+                        <span class="progress-type">زبان فارسی (زبان مادی)</span>
+                        <span class="progress-completed">100%</span>
+                      </div>
+                    </li>
+                    <!-- /item list -->
+                    <!-- item-list -->
+                    
+                    <!-- /item list -->
+                    <!-- item-list -->
+                    <li>
+                      <div class="progress" title="Doing my best!">
+                        <div class="progress-bar progress-bar-3" role="progressbar" data-percent="35%" style="width: 35%;">
+                            <span class="sr-only">35% Complete</span>
+                        </div>
+                        <span class="progress-type">زبان انگلیسی</span>
+                        <span class="progress-completed">35%</span>
+                      </div>
+                    </li>
+                    <!-- /item list -->
+                </ul>
+				<!-- /Skils List -->
+
+				 <!-- Subtitle -->
+	          	<h3 class="section-item-title-2"><i class="fa fa-laptop"></i>&nbsp;&nbsp; مهارت ها <br> مهارت های کاربردی ادمینی</h3>
+	          	<!-- /Subtitle -->
+
+				<!-- Skils List -->
+				<ul class="skills-list">
+                    <!-- item-list -->
+					<li>
+						<div class="progress">
+						  <div class="progress-bar" data-percent="100%" role="progressbar" style="width: 100%;">
+							  <span class="sr-only">100% Complete</span>
+						  </div>
+						  <span class="progress-type">مسلط به ابزار دایرکت هوشمند</span>
+						  <span class="progress-completed"></span>
+						</div>
+						<div class="vcard-profile-description-text">
+							<p>تست</p>
+						</div>
+					  </li>
+					  <li>
+						<div class="progress">
+						  <div class="progress-bar" data-percent="100%" role="progressbar" style="width: 100%;">
+							  <span class="sr-only">95% Complete</span>
+						  </div>
+						  <span class="progress-type">تولید محتوا (تصویری)</span>
+						  <span class="progress-completed"></span>
+						</div>
+						<div class="vcard-profile-description-text">
+							<p>تست</p>
+						</div>
+					  </li>
+					  <li>
+						<div class="progress">
+						  <div class="progress-bar" data-percent="100%" role="progressbar" style="width: 100%;">
+							  <span class="sr-only">95% Complete</span>
+						  </div>
+						  <span class="progress-type">طراحی پست با CANVA, InShot و CapCut</span>
+						  <span class="progress-completed"></span>
+						</div>
+						<div class="vcard-profile-description-text">
+							<p>تست</p>
+						</div>
+					  </li>
+					  <li>
+						<div class="progress">
+						  <div class="progress-bar" data-percent="100%" role="progressbar" style="width: 100%;">
+							  <span class="sr-only">95% Complete</span>
+						  </div>
+						  <span class="progress-type">تحلیل آمار</span>
+						  <span class="progress-completed"></span>
+						</div>
+						<div class="vcard-profile-description-text">
+							<p>تست</p>
+						</div>
+					  </li>
+					  <li>
+						<div class="progress">
+						  <div class="progress-bar" data-percent="100%" role="progressbar" style="width: 100%;">
+							  <span class="sr-only">95% Complete</span>
+						  </div>
+						  <span class="progress-type">پاسخ گویی حرفه ای به دایرکت</span>
+						  <span class="progress-completed"></span>
+						</div>
+						<div class="vcard-profile-description-text">
+							<p>تست</p>
+						</div>
+					  </li>
+					  <li>
+						<div class="progress">
+						  <div class="progress-bar" data-percent="100%" role="progressbar" style="width: 100%;">
+							  <span class="sr-only">95% Complete</span>
+						  </div>
+						  <span class="progress-type">مدیریت استوری، هایلایت و کپشن</span>
+						  <span class="progress-completed"></span>
+						</div>
+						<div class="vcard-profile-description-text">
+							<p>تست</p>
+						</div>
+					  </li>
+					  <li>
+						<div class="progress">
+						  <div class="progress-bar" data-percent="100%" role="progressbar" style="width: 100%;">
+							  <span class="sr-only">95% Complete</span>
+						  </div>
+						  <span class="progress-type">آشنایی با الگوریتم ایستاگرام و گوگل</span>
+						  <span class="progress-completed"></span>
+						</div>
+						<div class="vcard-profile-description-text">
+							<p>تست</p>
+						</div>
+					  </li>
+					  <li>
+						<div class="progress">
+						  <div class="progress-bar" data-percent="100%" role="progressbar" style="width: 100%;">
+							  <span class="sr-only">95% Complete</span>
+						  </div>
+						  <span class="progress-type">زمان بندی محتوا با تقویم محتوایی</span>
+						  <span class="progress-completed"></span>
+						</div>
+						<div class="vcard-profile-description-text">
+							<p>تست</p>
+						</div>
+					  </li>
+                    
+                    <!-- /item list -->
+                  </ul>
+				<!-- /Skils List -->
+
+				 <!-- Subtitle -->
+	          	<h3 class="section-item-title-2"><i class="fa fa-code"></i>&nbsp;&nbsp; دوره ها </h3>
+	          	<!-- /Subtitle -->
+
+                    <li>
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-2" data-percent="100%" role="progressbar" style="width: 100%;">
+                            <span class="sr-only">100% Complete</span>
+                        </div>
+                        <span class="progress-type">دوره ادمین هوشمند - مدرس مریم مجیدی نژاد</span>
+                        <span class="progress-completed"></span>
+                      </div>
+					  <div class="vcard-profile-description-text">
+						<p>تست</p>
+					</div>
+                    </li>
+					<li>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-2" data-percent="100%" role="progressbar" style="width: 100%;">
+							  <span class="sr-only">100% Complete</span>
+						  </div>
+						  <span class="progress-type">دوره ادمین ثروت ساز - مدرس مریم مجیدی نژاد</span>
+						  <span class="progress-completed"></span>
+						</div>
+						<div class="vcard-profile-description-text">
+							<p>تست</p>
+						</div>
+					  </li>
+					  <li>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-2" data-percent="100%" role="progressbar" style="width: 100%;">
+							  <span class="sr-only">100% Complete</span>
+						  </div>
+						  <span class="progress-type">دوره ادمین استوری - مدرس مریم مجیدی نژاد</span>
+						  <span class="progress-completed"></span>
+						</div>
+						<div class="vcard-profile-description-text">
+							<p>تست</p>
+						</div>
+					  </li>
+					  <li>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-2" data-percent="100%" role="progressbar" style="width: 100%;">
+							  <span class="sr-only">100% Complete</span>
+						  </div>
+						  <span class="progress-type">دوره استامینوفن - مدرس مریم مجیدی نژاد</span>
+						  <span class="progress-completed"></span>
+						</div>
+						<div class="vcard-profile-description-text">
+							<p>تست</p>
+						</div>
+					  </li>
+					  <li>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-2" data-percent="100%" role="progressbar" style="width: 100%;">
+							  <span class="sr-only">100% Complete</span>
+						  </div>
+						  <span class="progress-type">دوره دایرکت حرفه ای - مدرس مریم مجیدی نژاد</span>
+						  <span class="progress-completed"></span>
+						</div>
+						<div class="vcard-profile-description-text">
+							<p>تست</p>
+						</div>
+					  </li>
+					  <li>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-2" data-percent="100%" role="progressbar" style="width: 100%;">
+							  <span class="sr-only">100% Complete</span>
+						  </div>
+						  <span class="progress-type">دوره محتوا نویسی - مدرس مریم مجیدی نژاد</span>
+						  <span class="progress-completed"></span>
+						</div>
+						<div class="vcard-profile-description-text">
+							<p>تست</p>
+						</div>
+					  </li>
+					
+					  </li>
+                    
+				 
+			</div>			
+		</div>
+		<!-- /SECTION: SKILLS  -->	
+
+		<!-- SECTION: PORTFOLIO-->
+		<div class="section-vcardbody section-page" id="page-portfolio">
+			<div class="section-portfolio">
+
+				<!-- Section title -->
+	            <h2 class="section-title">گواهینامه ها</h2>
+	            <!-- /Section title -->
+
+	            <!-- Projects list -->
+				<div class="projects-list">
+
+					<!-- item -->
+					<div class="project-item">
+						<!-- ==> Put your thumbnail as a background -->
+						<a href="img/Samaneh kahnamoui.jpg" class="project-thumbnail nivobox" data-lightbox-gallery="portfolio" style="background-image: url('img/portfolio/Samaneh kahnamoui.jpg');">
+							<!-- project-description -->
+							<div class="project-description-wrapper">
+								<div class="project-description">
+									<!-- project name -->
+									<h2 class="project-title">دوره ادمین ثروت ساز</h2>
+									<!-- /project name -->
+									<span class="see-more">www.maryammajidinejad.com</span>
+								</div>
+							</div>
+							<!-- /project-description -->
+						</a>
+					</div>			
+					<!-- /item -->
+
+					<!-- item -->
+					<div class="project-item">
+						<!-- ==> Put your thumbnail as a background -->
+						<a href="img/Samaneh kahnamoui (1).jpg" class="project-thumbnail nivobox" data-lightbox-gallery="portfolio" style="background-image: url('img/portfolio/Samaneh kahnamoui (1).jpg');">
+							<!-- project-description -->
+							<div class="project-description-wrapper">
+								<div class="project-description">
+									<!-- project name -->
+									<h2 class="project-title">کارگاه استوریست</h2>
+									<!-- /project name -->
+									<span class="see-more">www.maryammajidinejad.com</span>
+								</div>
+							</div>
+							<!-- /project-description -->
+						</a>
+					</div>			
+					<!-- /item -->
+
+					<!-- item -->
+					<div class="project-item">
+						<!-- ==> Put your thumbnail as a background -->
+						<a href="img/سمانه کهنمویی ثروت UNI.jpg" class="project-thumbnail nivobox" data-lightbox-gallery="portfolio" style="background-image: url('img/portfolio/سمانه کهنمویی ثروت UNI.jpg');">
+							<!-- project-description -->
+							<div class="project-description-wrapper">
+								<div class="project-description">
+									<!-- project name -->
+									<h2 class="project-title">راه اندازی قدم به قدم کسب و کار آنلاین</h2>
+									<!-- /project name -->
+									<span class="see-more">www.maryammajidinejad.com</span>
+								</div>
+							</div>
+							<!-- /project-description -->
+						</a>
+					</div>			
+					<!-- /item -->
+
+					<!-- item -->
+					<div class="project-item">
+						<!-- ==> Put your thumbnail as a background -->
+						<a href="img/سمانه کهنمویی UNI.jpg" class="project-thumbnail nivobox" data-lightbox-gallery="portfolio" style="background-image: url('img/portfolio/سمانه کهنمویی UNI.jpg');">
+							<!-- project-description -->
+							<div class="project-description-wrapper">
+								<div class="project-description">
+									<!-- project name -->
+									<h2 class="project-title">مدرک دانشگاهی</h2>
+									<!-- /project name -->
+									<span class="see-more"></span>
+								</div>
+							</div>
+							<!-- /project-description -->
+						</a>
+					</div>			
+					<!-- /item -->
+
+					<!-- item -->
+							
+					<!-- /item -->
+
+					<!-- item -->
+								
+					<!-- /item -->
+
+					<!-- item -->
+								
+					<!-- /item -->
+
+					<!-- item -->
+								
+					<!-- /item -->
+
+					<!-- item -->
+							
+					<!-- /item -->
+
+					
+				</div>
+				<!-- /projects list -->	
+
+			</div>			
+		</div>
+		<!-- /SECTION: PORTFOLIO  -->	
+
+		<!-- SECTION: BLOG-->
+		<div class="section-vcardbody section-page" id="page-blog">
+			<div class="section-blog">
+
+				<!-- Section title -->
+	            <h2 class="section-title">Blog</h2>
+	            <!-- /Section title -->          
+				
+				<!-- BLOG POSTS -->
+				<div class="blog-posts">
+					<!-- blog-item -->
+					<div class="blog-item">
+						<div class="blog-item-wrapper">
+							<!-- blog item thumbnail -->
+							<div class="blog-item-thumb">
+								<a href="single.html" class="loadPost"><img src="img/blog1.jpg" alt=""></a>
+							</div>
+							<!-- /blog item thumbnail -->
+							<!-- Blog item - infos -->
+							<div class="blog-item-infos">
+								<!-- blog-item-title -->
+								<div class="blog-item-title-wrapper">
+									<h2 class="blog-item-title title-border"><a href="single.html" class="loadPost">How to succeed in meetings</a></h2>
+								</div>
+								<!-- /blog-item-title -->
+								<!-- blog item - description -->
+								<div class="blog-item-description">
+									<p><a href="single.html" class="loadPost">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales varius sagittis. Proin a arcu vitae turpis congue facilisis. Quisque a lectus pretium, sagittis augue in, fringilla risus....</a></p>
+								</div>
+								<!-- /blog-item-description -->
+								<!-- blog item - link -->
+								<div class="blog-item-link">
+									<a href="single.html" class="btn btn-default loadPost">See More</a>
+								</div>
+								<!-- /blog item - link -->
+							</div>
+							<!-- /blog item - infos -->
+						</div>
+					</div>
+					<!-- /blog-item -->
+
+					<!-- blog-item -->
+					<div class="blog-item">
+						<div class="blog-item-wrapper">
+							<!-- blog item thumbnail -->
+							<div class="blog-item-thumb">
+								<a href="single.html" class="loadPost"><img src="img/blog2.jpg" alt=""></a>
+							</div>
+							<!-- /blog item thumbnail -->
+							<!-- Blog item - infos -->
+							<div class="blog-item-infos">
+								<!-- blog-item-title -->
+								<div class="blog-item-title-wrapper">
+									<h2 class="blog-item-title title-border"><a href="single.html" class="loadPost">10 tips to improve your laptop</a></h2>
+								</div>
+								<!-- /blog-item-title -->
+								<!-- blog item - description -->
+								<div class="blog-item-description">
+									<p><a href="single.html" class="loadPost">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales varius sagittis. Proin a arcu vitae turpis congue facilisis. Quisque a lectus pretium, sagittis augue in, fringilla risus....</a></p>
+								</div>
+								<!-- /blog-item-description -->
+								<!-- blog item - link -->
+								<div class="blog-item-link">
+									<a href="single.html" class="btn btn-default loadPost">See More</a>
+								</div>
+								<!-- /blog item - link -->
+							</div>
+							<!-- /blog item - infos -->
+						</div>
+					</div>
+					<!-- /blog-item -->
+
+					<!-- blog-item -->
+					<div class="blog-item">
+						<div class="blog-item-wrapper">
+							<!-- blog item thumbnail -->
+							<div class="blog-item-thumb">
+								<a href="single.html" class="loadPost"><img src="img/blog3.jpg" alt=""></a>
+							</div>
+							<!-- /blog item thumbnail -->
+							<!-- Blog item - infos -->
+							<div class="blog-item-infos">
+								<!-- blog-item-title -->
+								<div class="blog-item-title-wrapper">
+									<h2 class="blog-item-title title-border"><a href="single.html" class="loadPost">News of the week</a></h2>
+								</div>
+								<!-- /blog-item-title -->
+								<!-- blog item - description -->
+								<div class="blog-item-description">
+									<p><a href="single.html" class="loadPost">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales varius sagittis. Proin a arcu vitae turpis congue facilisis. Quisque a lectus pretium, sagittis augue in, fringilla risus....</a></p>
+								</div>
+								<!-- /blog-item-description -->
+								<!-- blog item - link -->
+								<div class="blog-item-link">
+									<a href="single.html" class="btn btn-default loadPost">See More</a>
+								</div>
+								<!-- /blog item - link -->
+							</div>
+							<!-- /blog item - infos -->
+						</div>
+					</div>
+					<!-- /blog-item -->
+
+					<!-- blog-item -->
+					<div class="blog-item">
+						<div class="blog-item-wrapper">
+							<!-- blog item thumbnail -->
+							<div class="blog-item-thumb">
+								<a href="single.html" class="loadPost"><img src="img/blog4.jpg" alt=""></a>
+							</div>
+							<!-- /blog item thumbnail -->
+							<!-- Blog item - infos -->
+							<div class="blog-item-infos">
+								<!-- blog-item-title -->
+								<div class="blog-item-title-wrapper">
+									<h2 class="blog-item-title title-border"><a href="single.html" class="loadPost">How to be a leader</a></h2>
+								</div>
+								<!-- /blog-item-title -->
+								<!-- blog item - description -->
+								<div class="blog-item-description">
+									<p><a href="single.html" class="loadPost">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales varius sagittis. Proin a arcu vitae turpis congue facilisis. Quisque a lectus pretium, sagittis augue in, fringilla risus....</a></p>
+								</div>
+								<!-- /blog-item-description -->
+								<!-- blog item - link -->
+								<div class="blog-item-link">
+									<a href="single.html" class="btn btn-default loadPost">See More</a>
+								</div>
+								<!-- /blog item - link -->
+							</div>
+							<!-- /blog item - infos -->
+						</div>
+					</div>
+					<!-- /blog-item -->
+
+					<!-- blog-item -->
+					<div class="blog-item">
+						<div class="blog-item-wrapper">
+							<!-- blog item thumbnail -->
+							<div class="blog-item-thumb">
+								<a href="single.html" class="loadPost"><img src="img/blog5.jpg" alt=""></a>
+							</div>
+							<!-- /blog item thumbnail -->
+							<!-- Blog item - infos -->
+							<div class="blog-item-infos">
+								<!-- blog-item-title -->
+								<div class="blog-item-title-wrapper">
+									<h2 class="blog-item-title title-border"><a href="single.html" class="loadPost">Tips to talk in public</a></h2>
+								</div>
+								<!-- /blog-item-title -->
+								<!-- blog item - description -->
+								<div class="blog-item-description">
+									<p><a href="single.html" class="loadPost">Designed by Norway-based practice Snhetta, in collaboration with local firm EHDD, the 10-story concrete structure will compliment SFMOMA’s original...</a></p>
+								</div>
+								<!-- /blog-item-description -->
+								<!-- blog item - link -->
+								<div class="blog-item-link">
+									<a href="single.html" class="btn btn-default loadPost">See More</a>
+								</div>
+								<!-- /blog item - link -->
+							</div>
+							<!-- /blog item - infos -->
+						</div>
+					</div>
+					<!-- /blog-item -->
+				</div>
+				 <!-- /BLOG POSTS -->
+				<!-- Pagination -->
+				<div class="section-pagination">
+					<div class="row">
+						<div class="col-xs-12">
+							<span class="pagination-numbers">
+								<a href="#">1</a>
+								<a href="#">2</a>
+								<a href="#">3</a>
+								<a href="#">4</a>
+								<a href="#">5</a>
+								<a href="#">6</a>
+							</span>
+						</div>
+					</div>								
+				</div>
+				<!-- /Pagination -->
+			</div>			
+		</div>
+		<!-- /SECTION: BLOG  -->	
+ 
+		<!-- SECTION: BLOG SINGLE-->
+		<div class="section-vcardbody section-page section-page-single" id="page-blog-single">
+			<div class="section-blog-single">
+				<!-- Load the single.html content via AJAX -->
+				<div id="postHere"></div>			
+				<!-- /Load the single.html content via AJAX -->
+			</div>			
+		</div>
+		<!-- /SECTION: BLOG SINGLE  -->
+
+		<!-- SECTION: CONTACT-->
+		<div class="section-vcardbody section-page" id="page-contact">
+			<div class="section-contact">
+
+				<!-- Section title -->
+	            <h2 class="section-title">Contact</h2>
+	            <!-- /Section title -->
+
+				
+	            <!-- Contact infos -->                 
+                <div class="contact-infos">
+                	<h4 class="contact-subtitle-1"><i class="fa fa-map"></i>&nbsp;   Address</h4>
+                	<p>Shiraz, Fars, Iran</p>
+                	<h4 class="contact-subtitle-1"><i class="fa fa-phone-square"></i>&nbsp; Phone</h4>
+                	<p>+98 936 535 0865</p>
+                	<h4 class="contact-subtitle-1"><i class="fa fa-envelope"></i>&nbsp; Mail</h4>
+                	<p>Samaneh.socialmedia@gmail.com</p>
+                </div>
+                <!-- /Contact infos --> 
+
+	            <!-- Contact form -->
+	            <h4 class="contact-subtitle-1">
+					<i class="fa fa-paper-plane-o"></i>&nbsp; Send Me a Message
+				  </h4>
+				  
+				  <form id="contactForm" class="form" onsubmit="sendToWhatsApp(); return false;">
+					<div class="form-group">
+					  <input class="form-control" id="name" placeholder="Name" type="text" required />
+					</div>
+					<div class="form-group">
+					  <input class="form-control" id="whatsapp" placeholder="whatsapp" type="whatsapp" required />
+					</div>
+					<div class="form-group">
+					  <input class="form-control" id="subject" placeholder="Subject" type="text" required />
+					</div>
+					<div class="form-group">
+					  <textarea class="form-control" id="message" placeholder="Message" rows="5" required></textarea>
+					</div>
+					<div class="form-group">
+					  <input type="submit" class="btn btn-default form-send" value="Send via WhatsApp">
+					</div>
+				  </form>
+				  
+				  <script>
+					function sendToWhatsApp() {
+					  const name = document.getElementById("name").value;
+					  const email = document.getElementById("whatsapp").value;
+					  const subject = document.getElementById("subject").value;
+					  const message = document.getElementById("message").value;
+				  
+					  const fullMessage = `👤 Name: ${name}%0A📧 whatsapp: ${whatsapp}%0A📝 Subject: ${subject}%0A💬 Message: ${message}`;
+					  const phoneNumber = "989365350865"; // شماره واتس‌اپ شما بدون صفر اول، با کد کشور (مثلاً ایران: 98)
+				  
+					  const whatsappURL = `https://wa.me/${phoneNumber}?text=${fullMessage}`;
+					  window.open(whatsappURL, "_blank");
+					}
+				  </script>
+		        <!-- /Contact Form -->
+
+			</div>			
+		</div>
+		<!-- /SECTION: CONTACT  -->	
+	</div>
+
+</section>
+<!-- /Main Content
+================================================== -->
+
+<!-- Contact Form - Ajax Messages
+========================================================= -->
+<!-- Form Sucess -->
+<div class="form-result modal-wrap" id="contactSuccess">
+  <div class="modal-bg"></div>
+  <div class="modal-content">
+    <h4 class="modal-title"><i class="fa fa-check-circle"></i> Success!</h4>
+    <p>Your message has been sent to us.</p>
+  </div>
+</div>
+<!-- /Form Sucess -->
+<!-- form-error -->
+<div class="form-result modal-wrap" id="contactError">
+  <div class="modal-bg"></div>
+  <div class="modal-content">
+    <h4 class="modal-title"><i class="fa fa-times"></i> Error</h4>
+    <p>There was an error sending your message.</p>
+  </div>
+</div>
+<!-- /form-error -->
+
+<!-- Contact Form - Ajax Messages
+========================================================= -->
+
+
+<!-- >> JS
+============================================================================== -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="vendor/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/validate.js"></script>
+<!-- Holder JS -->
+<script src="vendor/holder.js"></script>
+<!-- Modal box-->
+<script src="vendor1/nivo-lightbox/nivo-lightbox.min.js"></script>
+<!-- /Modal Box -->
+<!-- Perfect ScrolBar -->
+<script src="vendor1/perfect-scrollbar/js/min/perfect-scrollbar.jquery.min.js"></script>
+<!-- /Perfect ScrolBar -->
+<!-- Owl Caroulsel -->
+<script src="vendor1/owl.carousel/owl-carousel/owl.carousel.js"></script>
+<!-- Google Maps -->
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<!-- Cross-browser -->
+<script src="vendor/cross-browser.js"></script>
+<!-- Main Scripts -->
+<script src="js/main.js"></script>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="vendor/html5shiv.js"></script>
+  <script src="vendor/respond.min.js"></script>
+<![endif]-->
+<!-- >> /JS
+============================================================================= -->
 </body>
 </html>
